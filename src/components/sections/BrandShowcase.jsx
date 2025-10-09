@@ -6,12 +6,12 @@ import { availableBrands } from "../../data/products";
 // =========================================================
 // 1. EXPLICIT IMAGE IMPORTS 
 // =========================================================
-import AppleLogo from '../../assets/images/apple.png';
-import SamsungLogo from '../../assets/images/samsung.png';
-import XiaomiLogo from '../../assets/images/mi.png';
-import OnePlusLogo from '../../assets/images/oneplus.png';
-import GoogleLogo from '../../assets/images/google.png';
-import VivoLogo from '../../assets/images/vivo.png';
+import AppleLogo from '../../assets/images/Apple.png'; 
+import SamsungLogo from '../../assets/images/Samsung.png';
+import XiaomiLogo from '../../assets/images/mi.png'; 
+import OnePlusLogo from '../../assets/images/OnePlus.png'; 
+import GoogleLogo from '../../assets/images/Google.png'; 
+import VivoLogo from '../../assets/images/Vivo.png'; 
 // Add imports for any other brands here
 
 // =========================================================
