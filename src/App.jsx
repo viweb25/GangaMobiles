@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React  from 'react';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -9,10 +9,16 @@ import About from './pages/About';
 import Locations from './pages/Locations';
 import Login from './pages/Login';
 import Contact from './components/Contact';
+import ScrollTop from './utils/scrollTop';
+
+
 
 function App() {
+
+  
   return (
     <BrowserRouter>
+    <ScrollTop/>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
