@@ -7,16 +7,20 @@ import TrustAndProcess from '../components/sections/TrustAndProcess';
 import BrandShowcase from '../components/sections/BrandShowcase';
 import Testimonials from '../components/sections/Testimonials'; // <-- NEW IMPORT
 import CtaBanner from '../components/sections/CallToAction';
+import Gadjets from '../components/sections/GadgetsSection'
 // import LocationContactBlock from '../components/sections/LocationContactBlock';
 const Home = () => {
     return (
         <div>
             <HeroSlider />
+            
+            <ServicesSection  />
+            <Gadjets/>
+             <TrustAndProcess />
             <BrandShowcase/> 
-            <ServicesSection limit={4} />
             <Testimonials/> {/* <-- NEW SECTION ADDED */}
             {/* <LocationContactBlock/> */}
-            <TrustAndProcess />
+           
              <CtaBanner/>
         </div>
     );

@@ -1,49 +1,72 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+// 1. IMPORT THE LOGO IMAGE
+import GMLogo from '../../assets/gmlogo2.png'; 
 
 const Header = () => {
   const navItems = [
-    { name: 'Services', path: '/services' },
-    { name: 'Products', path: '/products' },
-    { name: 'Locations', path: '/locations' },
-    { name: 'Get Quote', path: '/quote', style: 'text-teal-400 font-bold' },
+    { name: 'Home', path: '/' },
+    { name: 'Repair Rates', path: '/repair-rates' },
+    { name: 'Gadget Services', path: '/gadget-services' },
     { name: 'About Us', path: '/about' },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gray-800 shadow-lg sticky top-0 z-50 border-b border-gray-600">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
-        {/* Logo/Site Title */}
-        <div className="flex-shrink-0">
-          <NavLink to="/" className="text-2xl font-extrabold text-teal-400 tracking-wide sm:text-3xl">
-            GANGA MOBILES
+    <header
+      className="sticky top-0 z-50 shadow-md bg-white" 
+      itemScope
+      itemType="https://schema.org/SiteNavigationElement"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+        
+        {/* Logo/Site Title - NOW INCLUDES THE IMAGE */}
+        <div className="flex-shrink-0 flex items-center space-x-2">
+          <NavLink
+            to="/"
+            className="flex items-center space-x-2" // Adjust spacing here if needed
+            itemProp="url"
+          >
+            {/* 2. LOGO IMAGE PLACEMENT */}
+            <img 
+                src={GMLogo} 
+                alt="Ganga Mobiles Logo" 
+                className="h-8 sm:h-9 w-auto" // Adjust size as needed
+            />
+            {/* Text Title for Accessibility/SEO (Optional, but good practice) */}
+            <span className="text-2xl font-extrabold text-[#800000] tracking-tight hidden sm:block">
+              Ganga Mobiles
+            </span>
           </NavLink>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 items-center">
+        <nav className="hidden md:flex space-x-2 items-center font-inter text-sm h-full">
+          {/* Regular Navigation Links */}
           {navItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
-                  item.style || ''
-                } ${
+                `h-full flex items-center px-4 font-medium transition-all duration-300 ${
                   isActive
-                    ? 'bg-gray-700 text-teal-400 border-b-2 border-teal-400'
-                    : 'text-gray-200 hover:bg-gray-700 hover:text-teal-400'
+                    ? 'text-[#800000] border-b-2 border-[#800000]'
+                    : 'text-gray-700 hover:text-gray-900'
                 }`
               }
+              itemProp="url"
             >
               {item.name}
             </NavLink>
           ))}
+          
+          {/* Featured Contact Us Button (Red/Maroon) */}
           <NavLink
             to="/contact"
-            className="bg-teal-500 text-white hover:bg-teal-600 px-4 py-2 rounded-full text-sm font-semibold shadow-md transition duration-200 transform hover:scale-105"
+            className="inline-block bg-[#800000] hover:bg-[#A52A2A] text-white font-semibold py-2.5 px-6 rounded text-sm shadow-lg transition-all duration-300 transform hover:scale-105 ml-6" 
+            aria-label="Contact Us for repair services"
+            itemProp="url"
           >
             Contact Us
           </NavLink>
@@ -53,10 +76,12 @@ const Header = () => {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-gray-200 hover:text-teal-400 focus:outline-none"
+            className="text-gray-900 hover:text-[#800000] focus:outline-none focus:ring-2 focus:ring-[#800000] rounded-md p-2 transition-colors duration-200"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
           >
             <svg
-              className="w-6 h-6"
+              className="w-7 h-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -75,30 +100,32 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-800 border-t border-gray-600">
-          <div className="px-4 py-3 flex flex-col space-y-3">
+        <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
+          <div className="px-4 py-4 flex flex-col space-y-1">
             {navItems.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.path}
                 className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
-                    item.style || ''
-                  } ${
+                  `block px-4 py-2 text-base font-medium transition-all duration-300 rounded-md ${
                     isActive
-                      ? 'bg-gray-700 text-teal-400'
-                      : 'text-gray-200 hover:bg-gray-700 hover:text-teal-400'
+                      ? 'bg-gray-100 text-[#800000]'
+                      : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
                   }`
                 }
                 onClick={() => setIsMobileMenuOpen(false)}
+                itemProp="url"
               >
                 {item.name}
               </NavLink>
             ))}
+            
+            {/* Contact Us Button in Mobile Menu */}
             <NavLink
               to="/contact"
-              className="bg-teal-500 text-white hover:bg-teal-600 px-4 py-2 rounded-full text-sm font-semibold text-center transition duration-200"
+              className="mt-3 block text-center bg-[#800000] hover:bg-[#A52A2A] text-white font-semibold py-2.5 px-6 rounded text-base shadow-md transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(false)}
+              itemProp="url"
             >
               Contact Us
             </NavLink>

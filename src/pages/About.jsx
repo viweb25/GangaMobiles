@@ -2,93 +2,93 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="bg-gray-50 py-12 sm:py-20">
+    <div className="bg-gray-50 py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-800">
+        <div className="text-center mb-16 sm:mb-20" data-aos="zoom-in" data-aos-duration="800">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-wide">
             About Ganga Mobiles
           </h1>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            Chennai's trusted chain for expert mobile repair, quality accessories, and reliable phone sales.
+          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Chennai's premier specialists in iCloud solutions, offering secure unlocking, account recovery, and expert mobile support.
           </p>
         </div>
 
-        {/* 1. Core Mission & Local Focus */}
-        <div className="bg-white p-8 sm:p-12 rounded-xl shadow-2xl mb-16" data-aos="fade-up">
-          <h2 className="text-3xl font-bold text-teal-600 mb-4">
-            A Chain Built on Trust in Chennai 
+        {/* 1. Core Mission & iCloud Focus */}
+        <div className="bg-white p-8 sm:p-12 rounded-xl shadow-2xl mb-16" data-aos="fade-right" data-aos-duration="800">
+          <h2 className="text-3xl font-bold text-[#800000] mb-4">
+            Pioneering iCloud Solutions in Chennai
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Ganga Mobiles has grown to become a leading name for mobile services across **Chennai**. We are not just a single store; we are a dedicated chain of mobile service centers offering a comprehensive solution for all your gadget needs—from the latest **new and used mobile sales** to complex **mobile repair services** and a wide array of **mobile accessories**. Our commitment is to provide quick, reliable, and expert service right in your neighborhood.
+            Ganga Mobiles is a trusted chain across Chennai, dedicated to solving iCloud-related challenges. From unlocking locked devices to recovering lost accounts, we provide a comprehensive suite of services tailored to Apple users. With multiple branches, our expert team ensures fast, secure, and reliable support for all your iCloud needs.
           </p>
         </div>
 
-        {/* 2. Services Offered - Detailed Breakdown */}
-        <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-10">
-          Our Core Expertise
+        {/* 2. Services Offered - Detailed iCloud Breakdown */}
+        <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12" data-aos="fade-up" data-aos-duration="800">
+          Our iCloud Expertise
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           
-          {/* Service 1: Mobile Repairs */}
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100" data-aos="fade-up" data-aos-delay="100">
-            <div className="text-teal-500 mb-3"><span className="text-3xl">🛠️</span></div>
-            <h3 className="text-xl font-bold text-blue-800 mb-2">Comprehensive Mobile Repairs</h3>
+          {/* Service 1: iCloud Unlocking */}
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+            <div className="text-[#800000] mb-3"><span className="text-3xl">🔓</span></div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">iCloud Unlocking Services</h3>
             <p className="text-gray-600">
-              We handle all major brands and mobile issues, from shattered screens and faulty batteries to complex water damage restoration. Our dedicated team provides **quick and reliable service** you can count on.
+              Expert solutions to unlock iCloud-locked devices, offering fast and legal methods to regain access to your Apple device.
             </p>
           </div>
           
-          {/* Service 2: Mobile Sales */}
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100" data-aos="fade-up" data-aos-delay="200">
-            <div className="text-teal-500 mb-3"><span className="text-3xl">📱</span></div>
-            <h3 className="text-xl font-bold text-blue-800 mb-2">New & Used Phone Sales</h3>
+          {/* Service 2: Account Recovery */}
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+            <div className="text-[#800000] mb-3"><span className="text-3xl">🔍</span></div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">iCloud Account Recovery</h3>
             <p className="text-gray-600">
-              Looking for an upgrade or a reliable budget device? We offer a curated selection of **new mobile phones** and quality **second-hand mobile phones**, all inspected and certified by our in-house experts.
+              Secure recovery services for lost or inaccessible iCloud accounts, with personalized support to restore your data.
             </p>
           </div>
 
-          {/* Service 3: Accessories */}
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100" data-aos="fade-up" data-aos-delay="300">
-            <div className="text-teal-500 mb-3"><span className="text-3xl">🔌</span></div>
-            <h3 className="text-xl font-bold text-blue-800 mb-2">Premium Mobile Accessories</h3>
+          {/* Service 3: 24/7 Support */}
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+            <div className="text-[#800000] mb-3"><span className="text-3xl">⏰</span></div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">24/7 Customer Support</h3>
             <p className="text-gray-600">
-              Protect and enhance your device with our wide range of **mobile accessories**, including cases, screen protectors, chargers, and headphones, available at all our branches.
+              Round-the-clock assistance for iCloud issues, ensuring you’re never left without help when you need it most.
             </p>
           </div>
         </div>
         
-        {/* 3. Location Spotlight (Directly linking to your Locations page) */}
-        <div className="bg-blue-800 p-8 sm:p-10 rounded-xl shadow-2xl text-white" data-aos="fade-up">
-            <h2 className="text-3xl font-bold mb-4">
-                Find Your Nearest Ganga Mobiles Branch
-            </h2>
-            <p className="text-lg text-blue-200 mb-6">
-                With **multiple branches across Chennai**, including Pallikaranai and Sithalapakkam, expert help is always close by.
-            </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <p className="font-semibold text-teal-400">Pallikaranai Location:</p>
-                    <p className="text-white text-sm">No. 2/21, Velachery Rd, opposite Balaji Dental College.</p>
-                    <a href="tel:+919176100072" className="text-blue-200 hover:text-white transition text-sm">
-                        Call: +91 91761 00072
-                    </a>
-                </div>
-                <div>
-                    <p className="font-semibold text-teal-400">Sithalapakkam Location:</p>
-                    <p className="text-white text-sm">No. 182, Mambakkam Main Road.</p>
-                    <p className="text-blue-200 text-sm">Also serving Narayanapuram, Vandalur, and Villivakkam areas.</p>
-                </div>
+        {/* 3. Location Spotlight */}
+        <div className="bg-[#800000] p-8 sm:p-12 rounded-xl shadow-2xl text-white" data-aos="fade-left" data-aos-duration="800">
+          <h2 className="text-3xl font-bold mb-4">
+            Visit Your Nearest Ganga Mobiles Branch
+          </h2>
+          <p className="text-lg text-gray-200 mb-6">
+            With multiple branches across Chennai, including Pallikaranai and Sithalapakkam, our experts are always within reach for iCloud solutions.
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <p className="font-semibold text-[#A52A2A]">Pallikaranai Location:</p>
+              <p className="text-gray-300 text-sm">No. 2/21, Velachery Rd, opposite Balaji Dental College.</p>
+              <a href="tel:+919176100072" className="text-gray-200 hover:text-white transition text-sm">
+                Call: +91 91761 00072
+              </a>
             </div>
-            
-            <a 
-                href="/locations" 
-                className="mt-6 inline-flex items-center px-6 py-3 border-2 border-teal-400 text-teal-400 font-bold rounded-lg hover:bg-teal-400 hover:text-blue-800 transition duration-300 shadow-lg uppercase"
-            >
-                See All Branch Addresses & Hours →
-            </a>
+            <div>
+              <p className="font-semibold text-[#A52A2A]">Sithalapakkam Location:</p>
+              <p className="text-gray-300 text-sm">No. 182, Mambakkam Main Road.</p>
+              <p className="text-gray-200 text-sm">Serving Narayanapuram, Vandalur, and Villivakkam areas.</p>
+            </div>
+          </div>
+          
+          <a 
+            href="/locations" 
+            className="mt-6 inline-flex items-center px-6 py-3 border-2 border-[#A52A2A] text-[#A52A2A] font-bold rounded-lg hover:bg-[#A52A2A] hover:text-white transition duration-300 shadow-lg uppercase"
+          >
+            See All Branch Addresses & Hours →
+          </a>
         </div>
 
       </div>
