@@ -6,8 +6,8 @@ import GMLogo from '../../assets/gmlogo2.png';
 const Header = () => {
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Repair Rates', path: '/repair-rates' },
-    { name: 'Gadget Services', path: '/gadget-services' },
+    { name: 'Service', path: '/Services' },
+    { name: 'Gadgets', path: '/products' },
     { name: 'About Us', path: '/about' },
   ];
 
