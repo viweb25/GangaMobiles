@@ -1,150 +1,136 @@
-import React, { useState, useMemo } from 'react';
-import ProductCard from '../components/products/productCard';
-import { productData, availableBrands } from '../data/products';
+import React from 'react';
+import { Link } from 'react-router-dom';
+// Ensure this path is correct for your data file
+import { productData, CATEGORY_TYPES } from '../data/products'; 
 
-const Products = () => {
-  const [selectedBrand, setSelectedBrand] = useState('All');
-  const [selectedType, setSelectedType] = useState('All');
-  const [isFilterOpen, setIsFilterOpen] = useState(false); // Fixed syntax
-  const [searchQuery, setSearchQuery] = useState('');
+// --- 1. Correctly Import Your Specific Accessory Images for the Footer Visuals ---
+// These are the three images you previously uploaded/mentioned:
+const EarbudsImage = 'uploaded:WhatsApp Image 2025-10-13 at 10.05.18 PM.jpeg-cd3a26d2-ef11-407f-8236-e01d315569cd';
+const ChargerImage = 'uploaded:WhatsApp Image 2025-10-13 at 10.14.25 PM.jpeg-a0a798de-86bb-4e7e-a66e-af728de4db13';
+const CaseImage = 'uploaded:WhatsApp Image 2025-10-13 at 10.20.14 PM.jpeg-0b84f312-dab4-46b8-b9b9-2411225a7be0';
 
-  // ... rest of the component
-   const productTypes = [
-    'All',
-    'Mobiles for Sale',
-    'iPhone 13 Spares & Accessories',
-    'General Apple Ecosystem',
-    'Universal Accessories',
-    'Repair Parts',
-    'Tools & Equipment',
-    'Mobile Gadgets', // Updated to match new category name
-  ];
+// --- Brand Colors ---
+const primaryBlue = '#003087'; // Deep Blue
+const accentBlue = '#4682B4';  // Steel Blue for hover
+const lightBlueBg = '#F0F4F8'; // Very light blue background for cards
 
-  const filteredProducts = useMemo(() => {
-    if (!productData) return [];
-    return productData.filter((product) => {
-      const matchesBrand = selectedBrand === 'All' || product.brand === selectedBrand;
-      const matchesType = selectedType === 'All' || product.categoryType === selectedType;
-      const matchesSearch =
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.tagline.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesBrand && matchesType && matchesSearch;
-    });
-  }, [selectedBrand, selectedType, searchQuery]);
+const GadgetsShowcase = () => {
+    
+    // Filter the product data to only include the relevant accessories/gadgets
+    const accessoriesToDisplay = productData.filter(
+        (product) => 
+            product.categoryType === CATEGORY_TYPES.ACCESSORIES_UNIVERSAL ||
+            product.categoryType === CATEGORY_TYPES.APPLE_GENERAL
+    );
 
-  return (
-    <div className="py-12 sm:py-16 md:py-20 bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        <header className="text-center mb-10 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1E3A8A] tracking-wide">
-            Ganga Mobiles Store
-          </h1>
-          <p className="mt-3 sm:mt-4 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover premium gadgets, accessories, and innovative solutions for all mobiles.
-          </p>
-        </header>
+    // Function to generate the WhatsApp link
+    const generateWhatsAppLink = (requestString) => {
+        const match = requestString.match(/Send "(.*?)"/);
+        const text = match ? match[1] : `Price for product: ${requestString}`;
+        
+        const base = 'https://wa.me/919176100072';
+        return `${base}?text=${encodeURIComponent(text)}`;
+    };
 
-        <div className="mb-8 sm:mb-10">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-5 py-3 rounded-xl border border-gray-200 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition-all duration-300 shadow-sm"
-          />
-        </div>
-
-        <div className="md:hidden mb-8">
-          <button
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-            className="w-full bg-[#1E3A8A] text-white font-medium py-3 rounded-xl flex justify-center items-center hover:bg-[#2A5098] transition-all duration-300 shadow-lg"
-          >
-            {isFilterOpen ? 'Hide Filters' : 'Show Filters'}
-            <svg
-              className={`w-5 h-5 ml-2 transform ${isFilterOpen ? 'rotate-180' : ''} transition-transform duration-300`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] gap-6 sm:gap-8">
-          <aside
-            className={`md:col-span-1 bg-white p-5 sm:p-6 rounded-2xl text-gray-800 md:h-fit md:sticky md:top-8 transition-all duration-500 ease-in-out ${
-              isFilterOpen ? 'block' : 'hidden md:block'
-            } shadow-md`}
-          >
-            <h2 className="text-xl sm:text-2xl font-bold mb-6 text-[#1E3A8A] border-b border-gray-100 pb-3">Filters</h2>
-
-            <div className="mb-6 p-4 bg-gray-50 rounded-xl">
-              <h3 className="text-base sm:text-lg font-semibold mb-3 pb-2 border-b border-gray-200 text-[#D4AF37]">
-                Shop By Brand
-              </h3>
-              <div className="space-y-2 max-h-64 overflow-y-auto pr-2">
-                {(availableBrands?.length ? ['All', ...availableBrands] : ['All']).map((brand) => (
-                  <button
-                    key={brand}
-                    onClick={() => setSelectedBrand(brand)}
-                    className={`w-full text-left py-2.5 px-4 rounded-lg transition-all duration-300 text-sm sm:text-base font-medium
-                      ${selectedBrand === brand ? 'bg-[#D4AF37]/10 text-[#D4AF37] font-semibold shadow-sm' : 'text-gray-700 hover:bg-[#D4AF37]/5 hover:text-[#D4AF37]'}`}
-                  >
-                    {brand} <span className="text-xs ml-2 text-gray-500">({productData?.filter((p) => brand === 'All' || p.brand === brand).length || 0})</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="p-4 bg-gray-50 rounded-xl">
-              <h3 className="text-base sm:text-lg font-semibold mb-3 pb-2 border-b border-gray-200 text-[#D4AF37]">
-                Product Type
-              </h3>
-              <div className="space-y-2">
-                {productTypes.map((type) => (
-                  <button
-                    key={type}
-                    onClick={() => setSelectedType(type)}
-                    className={`w-full text-left py-2.5 px-4 rounded-lg transition-all duration-300 text-sm sm:text-base font-medium
-                      ${selectedType === type ? 'bg-[#D4AF37]/10 text-[#D4AF37] font-semibold shadow-sm' : 'text-gray-700 hover:bg-[#D4AF37]/5 hover:text-[#D4AF37]'}`}
-                  >
-                    {type}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </aside>
-
-          <div className="md:col-span-1">
-            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-6 border-b border-gray-100 pb-3">
-              Showing {filteredProducts.length} Results:
-              <span className="text-[#D4AF37] ml-2">{selectedBrand}</span>
-              <span className="text-gray-400 mx-2">/</span>
-              <span className="text-[#D4AF37]">{selectedType}</span>
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))
-              ) : (
-                <div className="col-span-full text-center py-16 bg-white rounded-2xl shadow-md">
-                  <p className="text-xl text-gray-600">No products found.</p>
-                  <p className="text-sm text-gray-500 mt-2">Please adjust your filters or search term.</p>
+    return (
+        <section className="py-16 sm:py-24" style={{ backgroundColor: lightBlueBg }}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                {/* Header */}
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 
+                        className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-2"
+                        style={{ color: primaryBlue }}
+                    >
+                        Essential Mobile Accessories & Gadgets
+                    </h2>
+                    <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                        High-quality Earbuds, Fast Chargers, and essential cables for all your devices.
+                    </p>
                 </div>
-              )}
+
+                {/* Gadgets Grid (Displays AC001, AC002, AC004, etc. from productData) */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
+                    {accessoriesToDisplay.map((gadget, index) => (
+                        <div
+                            key={gadget.id}
+                            data-aos="zoom-in"
+                            data-aos-delay={index * 50}
+                            className="bg-white p-4 sm:p-5 rounded-xl shadow-lg border border-gray-100 flex flex-col justify-between transform transition duration-300 hover:shadow-2xl hover:scale-[1.03]"
+                        >
+                            {/* Product Image - Uses imageUrl which links to your asset files */}
+                            <div className="w-full h-28 sm:h-32 flex items-center justify-center mb-3 overflow-hidden rounded-lg bg-white-50">
+                                <img
+                                    src={gadget.imageUrl || gadget.imagePlaceholder} 
+                                    alt={gadget.name}
+                                    className="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-110"
+                                    onError={(e) => {
+                                        // Display emoji if image fails
+                                        e.target.style.display = 'none'; 
+                                        const parent = e.target.parentElement;
+                                        if (parent && gadget.imagePlaceholder) {
+                                            parent.innerHTML = `<div class="text-5xl">${gadget.imagePlaceholder}</div>`;
+                                        }
+                                    }}
+                                />
+                            </div>
+                            
+                            {/* Product Info */}
+                            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 leading-tight line-clamp-2">
+                                {gadget.name}
+                            </h3>
+                            <p className="text-xs text-gray-500 mb-4 line-clamp-2">
+                                {gadget.tagline}
+                            </p>
+
+                            {/* Price and CTA */}
+                            <div className="mt-auto">
+                                <p className="text-sm font-semibold mb-2" style={{ color: primaryBlue }}>
+                                    {gadget.price}
+                                </p>
+                                <a
+                                    href={generateWhatsAppLink(gadget.whatsappRequest)}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block text-center text-xs font-semibold py-2 rounded-lg transition duration-200"
+                                    style={{ backgroundColor: primaryBlue, color: 'white' }}
+                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentBlue}
+                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = primaryBlue}
+                                >
+                                    💬 Price Check
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                
+                {/* Visual Representation of Gadget Types (Using your specific uploaded images) */}
+                <div className="mt-16 text-center">
+                    <p className="text-xl font-semibold text-gray-700 mb-6">
+                        Featured Accessory Categories:
+                    </p>
+                    <div className="flex justify-center flex-wrap gap-4 sm:gap-6">
+                        <span className="text-center">
+                            {/* Image 1: Earbuds (using imported variable) */}
+                            <img src={EarbudsImage} alt="Wireless Earbuds" className="w-20 h-20 mx-auto rounded-lg object-cover shadow-md transition duration-300 hover:scale-105" />
+                            <p className="text-sm font-medium mt-1">Earbuds</p>
+                        </span>
+                        <span className="text-center">
+                            {/* Image 2: Fast Charger Adapter (using imported variable) */}
+                            <img src={ChargerImage} alt="Fast Charger Adapter" className="w-20 h-20 mx-auto rounded-lg object-cover shadow-md transition duration-300 hover:scale-105" />
+                            <p className="text-sm font-medium mt-1">Fast Chargers</p>
+                        </span>
+                        <span className="text-center">
+                            {/* Image 3: Mobile Phone Case (representing cables/covers) (using imported variable) */}
+                            <img src={CaseImage} alt="Mobile Phone Case" className="w-20 h-20 mx-auto rounded-lg object-cover shadow-md transition duration-300 hover:scale-105" />
+                            <p className="text-sm font-medium mt-1">Cables & Covers</p>
+                        </span>
+                    </div>
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+        </section>
+    );
 };
 
-
- 
-
-export default Products;
+export default GadgetsShowcase;

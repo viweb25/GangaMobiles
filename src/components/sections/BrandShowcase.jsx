@@ -1,38 +1,54 @@
-// src/components/sections/BrandShowcase.jsx
-
 import React from 'react';
 import { availableBrands } from "../../data/products"; 
 
+// --- Brand Colors ---
+const primaryBlue = '#003087'; // Deep Blue
+const hoverAccentBlue = '#4682B4'; // Steel Blue for hover effects
+
 // =========================================================
-// 1. Map Brand Name (String from data) to IMAGE URL STRING (from /public folder)
+// 1. Import Local Images from src/assets
+// NOTE: Ensure your file names (hero1.jpg, hero2.jpg, etc.) match the number of brands.
+// I will map the first 6 brands in the data to the 6 imported images.
 // =========================================================
-const brandLogos = {
-  // NOTE: Assuming your images are in the /public/assets/images directory
-  'Apple': '/assets/images/apple.png', 
-  'Samsung': '/assets/images/samsung.png',
-  'Xiaomi': '/assets/images/mi.png',
-  'OnePlus': '/assets/images/oneplus.png',
-  'Google': '/assets/images/google.png',
-  'Vivo': '/assets/images/vivo.png',
-  // Ensure you add paths for all brands listed in availableBrands
-};
+import logo1 from '../../assets/hero6.jpg'; // Assuming these files exist
+import logo2 from '../../assets/hero5.jpg';
+import logo3 from '../../assets/hero4.jpg';
+import logo4 from '../../assets/hero3.jpg';
+import logo5 from '../../assets/hero2.jpg';
+import logo6 from '../../assets/hero1.jpg';
 
 const BrandShowcase = () => {
-  
-  const brandsToDisplay = availableBrands 
-    ? availableBrands.filter(brand => brand && brand !== 'Universal' && brandLogos[brand])
-    : [];
+  // Use the brands listed in the data file for mapping
+  const brandsFromData = availableBrands || []; 
+
+  // Mapping the first 6 imported logos to the first 6 major brands in the data
+  // NOTE: This requires the order of availableBrands to be consistent (e.g., Apple is first)
+  const logoMap = {};
+  const importedLogos = [logo1, logo2, logo3, logo4, logo5, logo6];
+
+  // Map the imported image variables to the brand names
+  brandsFromData.slice(0, 6).forEach((brand, index) => {
+    if (brand && brand !== 'Universal') {
+      logoMap[brand] = importedLogos[index];
+    }
+  });
+
+  // Filter to only display brands that have a logo mapped and are not 'Universal'
+  const brandsToDisplay = brandsFromData.filter(brand => brand && brand !== 'Universal' && logoMap[brand]);
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50"> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Title Updated to Deep Blue */}
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1f2937] mb-3"> 
-          Shop By Brand 🛠️
+        <h2 
+          className="text-3xl sm:text-4xl font-extrabold mb-3"
+          style={{ color: primaryBlue }}
+        > 
+          Service By Brand 🛠️
         </h2>
         <p className="text-base text-gray-600 mb-12 max-w-2xl mx-auto"> 
-          Explore devices, genuine **parts**, and accessories from all major global manufacturers, ready for service.
+          Get genuine **parts**, accessories, and expert repair for devices from all major global manufacturers. Click to find your model.
         </p>
 
         {brandsToDisplay.length > 0 ? (
@@ -47,22 +63,31 @@ const BrandShowcase = () => {
                   data-aos="fade-up"
                   data-aos-delay={index * 50} 
                   data-aos-duration="600"
-                  // Hover Effect: Increased scale and border color changed to Deep Blue
-                  className="block bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500 ease-in-out group border-2 border-transparent hover:border-blue-800 transform hover:scale-105 overflow-hidden cursor-pointer"
+                  // Hover Effect: Use Deep Blue for border and text
+                  className="block bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500 ease-in-out group border-2 border-transparent transform hover:scale-105 overflow-hidden cursor-pointer"
+                  style={{ '--hover-color': hoverAccentBlue }} // Define custom CSS variable for hover
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = hoverAccentBlue; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; }}
                 >
                   <div className="flex flex-col items-center justify-start h-full w-full">
                     
                     {/* Image Container */}
                     <div className="w-full h-24 sm:h-28 flex items-center justify-center p-4 bg-gray-50/50 group-hover:bg-gray-100 transition duration-300">
                         <img 
-                            src={brandLogos[brand]} 
+                            // Use the imported image variable from the logoMap
+                            src={logoMap[brand]} 
                             alt={`${brand} Logo`} 
                             className="max-w-[70%] max-h-full object-contain transition duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-105" 
                         />
                     </div>
                     
                     {/* Brand Name Text - Hover text color changed to Deep Blue */}
-                    <h3 className="text-sm sm:text-base font-bold text-gray-700 group-hover:text-blue-800 transition tracking-wide text-center py-3 px-2 w-full border-t border-gray-100">
+                    <h3 
+                      className="text-sm sm:text-base font-bold text-gray-700 transition tracking-wide text-center py-3 px-2 w-full border-t border-gray-100"
+                      style={{ transition: 'color 300ms' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = primaryBlue; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = '#4B5563'; }} // Default gray
+                    >
                         {brand}
                     </h3>
                   </div>
@@ -72,7 +97,7 @@ const BrandShowcase = () => {
           </div>
         ) : (
           <div className="py-10 text-center bg-white rounded-lg shadow-md border border-gray-200">
-            <p className="text-xl text-red-500 font-semibold">
+            <p className="text-xl text-blue-500 font-semibold">
               No major brands are currently available to display.
             </p>
           </div>

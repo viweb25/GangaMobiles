@@ -1,3 +1,5 @@
+// src/data/products.js
+
 // --- 1. Product Categories/Types ---
 const CATEGORY_TYPES = {
     MOBILES: 'Mobiles for Sale',
@@ -6,7 +8,6 @@ const CATEGORY_TYPES = {
     ACCESSORIES_UNIVERSAL: 'Universal Accessories',
     REPAIR_PARTS_GENERAL: 'General Repair Parts',
     TOOLS_EQUIPMENT: 'Tools & Equipment',
-    MOBILE_GADGETS: 'Mobile Gadgets', // Retained for new style
 };
 
 // --- 2. Available Brands (Expanded) ---
@@ -19,66 +20,120 @@ const availableBrands = [
     'Vivo',      
     'Universal', 
 ];
+// =========================================================
+// 3. Image Imports (FIXED - All imports now use the simple '../assets/' path)
+// I have assumed paths for the two missing tool images (displaySeparator and screwdriver-kit)
+// =========================================================
+import iphone13OLEDImg from '../assets/iphone13-display.png'; 
+import samsungBatteryImg from '../assets/samsung-battery.png';
+import xiaomiChargingPortImg from '../assets/xiaomi-chargeport.png';
+import airpodsImg from '../assets/airpods.jpg'
 
-// --- 3. Product Data Array (The Shop Inventory - Prices on WhatsApp Request) ---
+// *** FIX: Added missing imports for tools ***
+
+
+// Accessories/Gadgets
+import twsEarbudsImg from '../assets/tws-earbuds.jpg'; 
+import fastChargerImg from '../assets/fast-charger-adapter.jpg';
+import lightningCableImg from '../assets/lightning-cable.jpg';
+import usbcCableImg from '../assets/usbc.jpg';
+import wiredEarphonesImg from '../assets/wired-earphones.jpg';
+
+const defaultImage = 'https://via.placeholder.com/200x150?text=Product+Image'; 
+
+// --- 4. Product Data Array ---
 const productData = [
-    // ... (Previous product data remains unchanged)
+    // =========================================================
+    // CATEGORY 1: REPAIR PARTS - DISPLAYS & GLASS
+    // =========================================================
+    {
+        id: 'RP001', name: 'Original Quality iPhone 13 OLED Display', brand: 'Apple', categoryType: CATEGORY_TYPES.IPHONE_13_SPECIFIC,
+        price: 'Request via WhatsApp', tagline: 'High-grade replacement OLED, True Tone compatible.', 
+        imagePlaceholder: '📱', imageUrl: iphone13OLEDImg || defaultImage,
+        whatsappRequest: 'Price for iPhone 13 OLED',
+    },
+    {
+        id: 'RP002', name: 'Samsung Galaxy A52 Glass/Digitizer', brand: 'Samsung', categoryType: CATEGORY_TYPES.REPAIR_PARTS_GENERAL,
+        price: 'Request via WhatsApp', tagline: 'Outer glass replacement for A52 series.', 
+        imagePlaceholder: '🔨', imageUrl: defaultImage, // No specific image provided
+        whatsappRequest: 'Price for A52 Glass',
+    },
+    
+    // =========================================================
+    // CATEGORY 2: REPAIR PARTS - BATTERIES & PORTS
+    // =========================================================
+    {
+        id: 'RP003', name: 'High Capacity Samsung S21 Battery', brand: 'Samsung', categoryType: CATEGORY_TYPES.REPAIR_PARTS_GENERAL,
+        price: 'Request via WhatsApp', tagline: 'Zero-cycle battery for extended backup.', 
+        imagePlaceholder: '🔋', imageUrl: samsungBatteryImg || defaultImage,
+        whatsappRequest: 'Price for S21 Battery',
+    },
+    {
+        id: 'RP004', name: 'OnePlus 8T Charging Port Flex Assembly', brand: 'OnePlus', categoryType: CATEGORY_TYPES.REPAIR_PARTS_GENERAL,
+        price: 'Request via WhatsApp', tagline: 'Complete assembly for Warp Charge fix.', 
+        imagePlaceholder: '🔌', imageUrl: xiaomiChargingPortImg || defaultImage, 
+        whatsappRequest: 'Price for OnePlus 8T Port',
+    },
+    
+    // =========================================================
+    // CATEGORY 3: TOOLS & EQUIPMENT
+    // =========================================================
+    // {
+    //     id: 'EQ001', name: 'Precision Mobile Repair Tool Kit (38-in-1)', brand: 'Universal', categoryType: CATEGORY_TYPES.TOOLS_EQUIPMENT,
+    //     price: 'Request via WhatsApp', tagline: 'Essential kit with Pentalobe and Tri-wing bits.', 
+    //     imagePlaceholder: '🔧', imageUrl: precisionScrewdriverImg || defaultImage,
+    //     whatsappRequest: 'Price for 38-in-1 Tool Kit',
+    // },
+    // {
+    //     id: 'EQ002', name: 'Digital Display Separator Machine', brand: 'Universal', categoryType: CATEGORY_TYPES.TOOLS_EQUIPMENT,
+    //     price: 'Request via WhatsApp', tagline: 'Hot plate for safely removing cracked screens.', 
+    //     imagePlaceholder: '⚙️', imageUrl: displaySeparatorImg || defaultImage,
+    //     whatsappRequest: 'Price for Display Separator',
+    // },
 
     // =========================================================
-    // CATEGORY 7: MOBILE GADGETS (Premium Accessories - Price on WhatsApp)
+    // CATEGORY 4: CORE GADGETS (Earbuds, Chargers, Cables)
     // =========================================================
+    
+    // --- Earphones & Earbuds ---
     {
-        id: 'MG001', name: 'Smart Wireless Charging Hub', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Sleek 3-device charging with ambient LED, fits all mobiles.', imagePlaceholder: '⚡',
-        whatsappRequest: 'Send "Price for Charging Hub" to +919176100072',
+        id: 'AC001', name: 'Premium TWS Earbuds Pro', brand: 'Universal', categoryType: CATEGORY_TYPES.ACCESSORIES_UNIVERSAL,
+        price: 'Request via WhatsApp', tagline: 'Active Noise Cancellation (ANC), 24hr battery life.', 
+        imagePlaceholder: '🎧', imageUrl: twsEarbudsImg || defaultImage,
+        whatsappRequest: 'Price for Premium TWS Earbuds',
     },
     {
-        id: 'MG002', name: 'Compact 4K Action Cam Pro', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Water-resistant, 4K UHD, pairs with any smartphone.', imagePlaceholder: '📹',
-        whatsappRequest: 'Send "Price for 4K Action Cam" to +919176100072',
+        id: 'AC002', name: 'Wired Earphones with Mic (Type C)', brand: 'Universal', categoryType: CATEGORY_TYPES.ACCESSORIES_UNIVERSAL,
+        price: 'Request via WhatsApp', tagline: 'Durable braided cable, great for gaming and calls.', 
+        imagePlaceholder: '🎤', imageUrl: wiredEarphonesImg || defaultImage,
+        whatsappRequest: 'Price for Wired Type C Earphones',
     },
     {
-        id: 'MG003', name: 'Adjustable LED Ring Light Stand', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Three brightness levels, perfect for content creation.', imagePlaceholder: '💡',
-        whatsappRequest: 'Send "Price for LED Ring Light" to +919176100072',
+        id: 'AC003', name: 'AirPods Pro 2 (Refurbished)', brand: 'Apple', categoryType: CATEGORY_TYPES.APPLE_GENERAL,
+        price: 'Request via WhatsApp', tagline: 'Certified refurbished Apple earbuds with warranty.', 
+        imagePlaceholder: '🍎🎧', imageUrl: airpodsImg || defaultImage,
+        whatsappRequest: 'Price for Refurbished AirPods Pro 2',
+    },
+    
+    // --- Chargers & Cables ---
+    {
+        id: 'AC004', name: '65W GaN Fast Charger Adapter', brand: 'Universal', categoryType: CATEGORY_TYPES.ACCESSORIES_UNIVERSAL,
+        price: 'Request via WhatsApp', tagline: 'Compact size, supports PD and QC for all devices.', 
+        imagePlaceholder: '⚡', imageUrl: fastChargerImg || defaultImage,
+        whatsappRequest: 'Price for 65W GaN Charger',
     },
     {
-        id: 'MG004', name: 'Bluetooth Selfie Stick & Tripod', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Extendable, wireless shutter, universal mobile compatibility.', imagePlaceholder: '📸',
-        whatsappRequest: 'Send "Price for Selfie Stick" to +919176100072',
+        id: 'AC005', name: 'MFi Certified Lightning Cable (2M)', brand: 'Apple', categoryType: CATEGORY_TYPES.APPLE_GENERAL,
+        price: 'Request via WhatsApp', tagline: 'Guaranteed compatibility and safe charging for iPhones.', 
+        imagePlaceholder: '🔗', imageUrl: lightningCableImg || defaultImage,
+        whatsappRequest: 'Price for MFi Lightning Cable',
     },
     {
-        id: 'MG005', name: 'Smart Key & Wallet Finder', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Bluetooth tracking, syncs with mobile for easy location.', imagePlaceholder: '🔍',
-        whatsappRequest: 'Send "Price for Key Finder" to +919176100072',
-    },
-    {
-        id: 'MG006', name: 'Pro Mobile Gaming Pad', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Ergonomic grip, low-latency, works with all gaming apps.', imagePlaceholder: '🎮',
-        whatsappRequest: 'Send "Price for Gaming Pad" to +919176100072',
-    },
-    {
-        id: 'MG007', name: 'Portable HD Projector', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Crisp 1080p projection from mobile, ideal for outdoor use.', imagePlaceholder: '🎥',
-        whatsappRequest: 'Send "Price for HD Projector" to +919176100072',
-    },
-    {
-        id: 'MG008', name: 'Fitness Sleep Monitor Band', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Tracks sleep and activity, syncs with health apps.', imagePlaceholder: '⌚',
-        whatsappRequest: 'Send "Price for Sleep Monitor" to +919176100072',
-    },
-    {
-        id: 'MG009', name: 'Magnetic Dashboard Car Holder', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Strong magnet, 360° adjustable, fits all mobile sizes.', imagePlaceholder: '🚗',
-        whatsappRequest: 'Send "Price for Car Holder" to +919176100072',
-    },
-    {
-        id: 'MG010', name: 'Smart LED Task Lamp', brand: 'Universal', categoryType: CATEGORY_TYPES.MOBILE_GADGETS,
-        price: 'Request via WhatsApp', tagline: 'Dimmable light with integrated mobile holder.', imagePlaceholder: '💡',
-        whatsappRequest: 'Send "Price for Task Lamp" to +919176100072',
+        id: 'AC006', name: 'Durable USB-C to USB-C Cable (100W)', brand: 'Universal', categoryType: CATEGORY_TYPES.ACCESSORIES_UNIVERSAL,
+        price: 'Request via WhatsApp', tagline: 'High-speed data and fast charging for Android/laptops.', 
+        imagePlaceholder: '🔗', imageUrl: usbcCableImg || defaultImage,
+        whatsappRequest: 'Price for 100W USB-C Cable',
     },
 ];
-
-// ... (Previous export remains unchanged)
 
 export { productData, availableBrands, CATEGORY_TYPES };

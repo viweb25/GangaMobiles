@@ -8,6 +8,8 @@ import BrandShowcase from '../components/sections/BrandShowcase';
 import Testimonials from '../components/sections/Testimonials'; // <-- NEW IMPORT
 import CtaBanner from '../components/sections/CallToAction';
 import Gadjets from '../components/sections/GadgetsSection'
+import  Icloud from '../components/sections/icloud'
+import Mainservice from '../components/sections/mainservice'
 // import LocationContactBlock from '../components/sections/LocationContactBlock';
 const Home = () => {
     return (
@@ -16,8 +18,11 @@ const Home = () => {
             
             <ServicesSection  />
             <Gadjets/>
-             <TrustAndProcess />
+            <Mainservice/>
             <BrandShowcase/> 
+             <TrustAndProcess />
+             <Icloud/>
+            
             <Testimonials/> {/* <-- NEW SECTION ADDED */}
             {/* <LocationContactBlock/> */}
            

@@ -9,22 +9,38 @@ import About from './pages/About';
 import Locations from './pages/Locations';
 import Login from './pages/Login';
 import Contact from './components/Contact';
+import ScrollTop from './utils/scrollTop';
+
+// Import detailed service pages
+import HardwareRepair from './components/sections/HardwareRepair';
+import SoftwareSystem from './components/sections/SoftwareSystem';
+import MaintenanceOptimization from './components/sections/MaintenanceOptimization';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/hardware" element={<HardwareRepair />} />
+          <Route path="/services/software" element={<SoftwareSystem />} />
+          <Route path="/services/maintenance" element={<MaintenanceOptimization />} />
           <Route path="/products" element={<Products />} />
           <Route path="/quote" element={<Quote />} />
           <Route path="/about" element={<About />} />
           <Route path="/locations" element={<Locations />} />
-          // Example Route Setup (Conceptual)
-      <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
-          <Route path="*" element={<h1 className="p-20 text-center text-4xl text-gray-800">404 - Page Not Found</h1>} />
+          <Route
+            path="*"
+            element={
+              <h1 className="p-20 text-center text-4xl text-gray-800">
+                404 - Page Not Found
+              </h1>
+            }
+          />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -5,7 +5,7 @@ const CtaBanner = () => {
     <section className="py-16 sm:py-24 bg-gray-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
         {/* Decorative Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#800000]/20 to-transparent opacity-50 -z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#003087]/20 to-transparent opacity-50 -z-10"></div>
 
         {/* Main Heading - Focused on iCloud Solutions */}
         <h2 
@@ -36,7 +36,7 @@ const CtaBanner = () => {
           {/* CTA 1: iCloud Unlock (Primary Action) */}
           <a 
             href="/icloud-unlock" 
-            className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-base font-bold rounded-lg shadow-xl text-white bg-[#800000] hover:bg-[#A52A2A] transform hover:scale-105 transition duration-300 uppercase tracking-wider"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-base font-bold rounded-lg shadow-xl text-white bg-[#003087] hover:bg-[#4682B4] transform hover:scale-105 transition duration-300 uppercase tracking-wider"
           >
             Unlock iCloud Now
           </a>
@@ -44,7 +44,7 @@ const CtaBanner = () => {
           {/* CTA 2: Account Recovery (Secondary Action) */}
           <a 
             href="/icloud-recovery" 
-            className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border-2 border-white text-base font-bold rounded-lg shadow-md text-white hover:bg-white hover:text-[#800000] transform hover:scale-105 transition duration-300 uppercase tracking-wider"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border-2 border-white text-base font-bold rounded-lg shadow-md text-white hover:bg-white hover:text-[#003087] transform hover:scale-105 transition duration-300 uppercase tracking-wider"
           >
             Recover Your Account
           </a>
