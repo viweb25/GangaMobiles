@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // --- Brand Colors ---
-const primaryRed = '#800000'; // Deep Red/Maroon
-const accentRed = '#A52A2A';  // Brighter Red for hover/accents
+const primaryBlue = '#003087'; // Deep Blue
+const accentBlue = '#4682B4';  // Steel Blue for hover/accents
 const lightGrayBg = '#F9FAFB'; // A very light background
 
 const repairProcessData = [
@@ -48,12 +48,12 @@ const TrustAndProcess = () => {
           
           {/* LEFT: Repair Process - Vertical Timeline Style */}
           <div data-aos="fade-right">
-            <p className="text-lg font-semibold uppercase tracking-wider mb-2" style={{ color: primaryRed }}>
+            <p className="text-lg font-semibold uppercase tracking-wider mb-2" style={{ color: primaryBlue }}>
               Our Simple Process
             </p>
             <h2 
               className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-10"
-              style={{ color: primaryRed }}
+              style={{ color: primaryBlue }}
             >
               Get Your Device Fixed in 4 Steps
             </h2>
@@ -61,7 +61,7 @@ const TrustAndProcess = () => {
             <ol className="relative border-l border-gray-300 ml-4">                  
               {repairProcessData.map((item) => (
                 <li key={item.step} className="mb-10 ml-6">
-                  <span className="absolute flex items-center justify-center w-8 h-8 rounded-full -left-4 ring-8 ring-gray-50/0" style={{ backgroundColor: primaryRed }}>
+                  <span className="absolute flex items-center justify-center w-8 h-8 rounded-full -left-4 ring-8 ring-gray-50/0" style={{ backgroundColor: primaryBlue }}>
                     <span className="text-white font-bold text-sm">{item.step}</span>
                   </span>
                   <div className="p-4 bg-white rounded-lg shadow-md transition duration-300 transform hover:shadow-xl hover:scale-[1.01]">
@@ -77,8 +77,8 @@ const TrustAndProcess = () => {
             <div className="mt-10 text-center lg:text-left">
               <Link
                 to="/quote"
-                style={{ backgroundColor: primaryRed }}
-                className={`inline-block text-white font-semibold py-3 px-8 rounded-lg shadow-xl transform transition duration-300 hover:scale-[1.02] hover:bg-red-700`}
+                style={{ backgroundColor: primaryBlue }}
+                className={`inline-block text-white font-semibold py-3 px-8 rounded-lg shadow-xl transform transition duration-300 hover:scale-[1.02] hover:bg-blue-700`}
               >
                 Start Your Repair Now →
               </Link>
@@ -87,7 +87,7 @@ const TrustAndProcess = () => {
 
           {/* RIGHT: Trust Features - Inverted Color Cards */}
           <div data-aos="fade-left">
-            <p className="text-lg font-semibold uppercase tracking-wider mb-2" style={{ color: primaryRed }}>
+            <p className="text-lg font-semibold uppercase tracking-wider mb-2" style={{ color: primaryBlue }}>
               Why We're Chennai's Choice
             </p>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-10">
@@ -100,8 +100,8 @@ const TrustAndProcess = () => {
                   key={index}
                   className="p-6 rounded-xl shadow-xl border-4 transform transition duration-300 hover:shadow-2xl hover:scale-[1.03] text-white"
                   style={{ 
-                      backgroundColor: primaryRed,
-                      borderColor: accentRed,
+                      backgroundColor: primaryBlue,
+                      borderColor: accentBlue,
                   }}
                   data-aos="zoom-in"
                   data-aos-delay={index * 150}
@@ -121,16 +121,16 @@ const TrustAndProcess = () => {
                 className={`inline-block font-semibold py-3 px-8 rounded-lg shadow-xl border-2 border-transparent transition duration-300 transform hover:scale-[1.02]`}
                 style={{ 
                     backgroundColor: 'transparent',
-                    color: primaryRed,
-                    borderColor: primaryRed
+                    color: primaryBlue,
+                    borderColor: primaryBlue
                 }}
                 onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = primaryRed;
+                    e.currentTarget.style.backgroundColor = primaryBlue;
                     e.currentTarget.style.color = 'white';
                 }}
                 onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = primaryRed;
+                    e.currentTarget.style.color = primaryBlue;
                 }}
               >
                 View Our Warranty Details →

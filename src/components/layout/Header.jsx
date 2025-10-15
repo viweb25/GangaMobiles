@@ -35,7 +35,7 @@ const Header = () => {
                 className="h-8 sm:h-9 w-auto" // Adjust size as needed
             />
             {/* Text Title for Accessibility/SEO (Optional, but good practice) */}
-            <span className="text-2xl font-extrabold text-[#800000] tracking-tight hidden sm:block">
+            <span className="text-2xl font-extrabold text-[#003087] tracking-tight hidden sm:block">
               Ganga Mobiles
             </span>
           </NavLink>
@@ -51,7 +51,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `h-full flex items-center px-4 font-medium transition-all duration-300 ${
                   isActive
-                    ? 'text-[#800000] border-b-2 border-[#800000]'
+                    ? 'text-[#003087] border-b-2 border-[#003087]'
                     : 'text-gray-700 hover:text-gray-900'
                 }`
               }
@@ -61,10 +61,10 @@ const Header = () => {
             </NavLink>
           ))}
           
-          {/* Featured Contact Us Button (Red/Maroon) */}
+          {/* Featured Contact Us Button (Blue) */}
           <NavLink
             to="/contact"
-            className="inline-block bg-[#800000] hover:bg-[#A52A2A] text-white font-semibold py-2.5 px-6 rounded text-sm shadow-lg transition-all duration-300 transform hover:scale-105 ml-6" 
+            className="inline-block bg-[#003087] hover:bg-[#4682B4] text-white font-semibold py-2.5 px-6 rounded text-sm shadow-lg transition-all duration-300 transform hover:scale-105 ml-6" 
             aria-label="Contact Us for repair services"
             itemProp="url"
           >
@@ -76,7 +76,7 @@ const Header = () => {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-gray-900 hover:text-[#800000] focus:outline-none focus:ring-2 focus:ring-[#800000] rounded-md p-2 transition-colors duration-200"
+            className="text-gray-900 hover:text-[#003087] focus:outline-none focus:ring-2 focus:ring-[#003087] rounded-md p-2 transition-colors duration-200"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
@@ -109,7 +109,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   `block px-4 py-2 text-base font-medium transition-all duration-300 rounded-md ${
                     isActive
-                      ? 'bg-gray-100 text-[#800000]'
+                      ? 'bg-gray-100 text-[#003087]'
                       : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
                   }`
                 }
@@ -123,7 +123,7 @@ const Header = () => {
             {/* Contact Us Button in Mobile Menu */}
             <NavLink
               to="/contact"
-              className="mt-3 block text-center bg-[#800000] hover:bg-[#A52A2A] text-white font-semibold py-2.5 px-6 rounded text-base shadow-md transition-all duration-300"
+              className="mt-3 block text-center bg-[#003087] hover:bg-[#4682B4] text-white font-semibold py-2.5 px-6 rounded text-base shadow-md transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(false)}
               itemProp="url"
             >

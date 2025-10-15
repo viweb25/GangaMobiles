@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 // Define Brand and WhatsApp Details
-const primaryRed = '#800000'; // Deep Red/Maroon
-const lightRed = '#FCE7E7'; // Light Red for backgrounds
+const primaryBlue = '#003087'; // Deep Blue
+const lightBlue = '#E6F0FA'; // Light Blue for backgrounds
 const whatsAppGreen = '#4dc247';
 const WHATSAPP_NUMBER = '919176100072';
 const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -70,29 +70,29 @@ const Quote = () => {
     // --- Final Success Message Component ---
     if (isSubmitted) {
         return (
-            <div className="bg-white py-20 sm:py-32" style={{ backgroundColor: lightRed }}>
+            <div className="bg-white py-20 sm:py-32" style={{ backgroundColor: lightBlue }}>
                 <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <svg className="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" style={{ color: primaryRed }}>
+                    <svg className="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" style={{ color: primaryBlue }}>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-4" style={{ color: primaryRed }}>
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-4" style={{ color: primaryBlue }}>
                         One Step Closer to Your Quote!
                     </h1>
                     <p className="mt-4 text-lg text-gray-700">
                         We are waiting for you on **WhatsApp**. Please hit 'Send' in the app to immediately transmit your detailed request to our technician.
                     </p>
                     
-                    <div className="mt-8 pt-6 border-t border-red-200">
+                    <div className="mt-8 pt-6 border-t border-blue-200">
                         <h2 className="text-xl font-bold text-gray-800">Need immediate confirmation?</h2>
                         <p className="mt-2 text-gray-600">
                             Call us right away to confirm receipt and accelerate your quote process.
                         </p>
                         
-                        {/* Button for Booking a Call (Branded Red) */}
+                        {/* Button for Booking a Call (Branded Blue) */}
                         <a
                             href={`tel:+919176100072`} 
                             className="mt-4 w-full sm:w-auto inline-flex justify-center items-center px-8 py-3 border-2 border-transparent text-base font-bold rounded-full shadow-lg text-white transform hover:scale-105 transition duration-300 uppercase"
-                            style={{ backgroundColor: primaryRed, borderColor: primaryRed }}
+                            style={{ backgroundColor: primaryBlue, borderColor: primaryBlue }}
                         >
                             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M14.417 10.583a.833.833 0 011.666 0v2.5a4.167 4.167 0 01-4.166 4.167h-3.334a4.167 4.167 0 01-4.167-4.167v-3.334a4.167 4.167 0 014.167-4.166h2.5a.833.833 0 010 1.666h-2.5a2.5 2.5 0 00-2.5 2.5v3.334a2.5 2.5 0 002.5 2.5h3.334a2.5 2.5 0 002.5-2.5v-2.5z"></path></svg>
                             Call Now (+91 91761 00072)
@@ -107,17 +107,17 @@ const Quote = () => {
     return (
         <div className="bg-gray-50 py-16 sm:py-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center" style={{ color: primaryRed }}>
+                <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center" style={{ color: primaryBlue }}>
                     Instant Repair Quote via WhatsApp
                 </h1>
                 <p className="mt-4 text-base sm:text-lg text-gray-600 text-center max-w-2xl mx-auto">
                     Fill out the details below and get an **instant quote sent directly to our technicians** via WhatsApp for the fastest service.
                 </p>
-                <div className="mt-12 max-w-3xl mx-auto bg-white p-6 sm:p-12 rounded-2xl shadow-2xl border-t-4" style={{ borderColor: primaryRed }}>
+                <div className="mt-12 max-w-3xl mx-auto bg-white p-6 sm:p-12 rounded-2xl shadow-2xl border-t-4" style={{ borderColor: primaryBlue }}>
                     
                     <form className="space-y-8">
                         
-                        <h3 className="text-xl font-bold text-gray-800 border-b pb-3" style={{ color: primaryRed }}>1. Your Contact Details</h3>
+                        <h3 className="text-xl font-bold text-gray-800 border-b pb-3" style={{ color: primaryBlue }}>1. Your Contact Details</h3>
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <input
@@ -128,7 +128,7 @@ const Quote = () => {
                                 placeholder="Your Full Name *"
                                 required
                                 className="col-span-1 w-full px-5 py-3 rounded-lg border-2 border-gray-300 text-gray-700 focus:outline-none focus:ring-4"
-                                style={{ '--tw-ring-color': primaryRed }}
+                                style={{ '--tw-ring-color': primaryBlue }}
                             />
                             <input
                                 type="tel"
@@ -138,7 +138,7 @@ const Quote = () => {
                                 placeholder="Phone Number *"
                                 required
                                 className="col-span-1 w-full px-5 py-3 rounded-lg border-2 border-gray-300 text-gray-700 focus:outline-none focus:ring-4"
-                                style={{ '--tw-ring-color': primaryRed }}
+                                style={{ '--tw-ring-color': primaryBlue }}
                             />
                             <input
                                 type="email"
@@ -147,11 +147,11 @@ const Quote = () => {
                                 onChange={handleChange}
                                 placeholder="Email Address (For Quote Copy)"
                                 className="col-span-1 w-full px-5 py-3 rounded-lg border-2 border-gray-300 text-gray-700 focus:outline-none focus:ring-4"
-                                style={{ '--tw-ring-color': primaryRed }}
+                                style={{ '--tw-ring-color': primaryBlue }}
                             />
                         </div>
 
-                        <h3 className="text-xl font-bold text-gray-800 border-b pb-3 pt-4" style={{ color: primaryRed }}>2. Device & Service Information</h3>
+                        <h3 className="text-xl font-bold text-gray-800 border-b pb-3 pt-4" style={{ color: primaryBlue }}>2. Device & Service Information</h3>
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <input
@@ -162,7 +162,7 @@ const Quote = () => {
                                 placeholder="Brand (e.g., Apple) *"
                                 required
                                 className="w-full px-5 py-3 rounded-lg border-2 border-gray-300 text-gray-700 focus:outline-none focus:ring-4"
-                                style={{ '--tw-ring-color': primaryRed }}
+                                style={{ '--tw-ring-color': primaryBlue }}
                             />
                             <input
                                 type="text"
@@ -172,7 +172,7 @@ const Quote = () => {
                                 placeholder="Model (e.g., iPhone 13) *"
                                 required
                                 className="w-full px-5 py-3 rounded-lg border-2 border-gray-300 text-gray-700 focus:outline-none focus:ring-4"
-                                style={{ '--tw-ring-color': primaryRed }}
+                                style={{ '--tw-ring-color': primaryBlue }}
                             />
                             <select
                                 name="service"
@@ -180,7 +180,7 @@ const Quote = () => {
                                 onChange={handleChange}
                                 required
                                 className="w-full px-5 py-3 rounded-lg border-2 border-gray-300 text-gray-700 focus:outline-none focus:ring-4"
-                                style={{ '--tw-ring-color': primaryRed }}
+                                style={{ '--tw-ring-color': primaryBlue }}
                             >
                                 <option value="" disabled>Select Primary Service *</option>
                                 <option value="Screen Repair">Screen Repair / Display Change</option>
@@ -200,7 +200,7 @@ const Quote = () => {
                             rows="4"
                             required
                             className="w-full px-5 py-3 rounded-lg border-2 border-gray-300 text-gray-700 focus:outline-none focus:ring-4"
-                            style={{ '--tw-ring-color': primaryRed }}
+                            style={{ '--tw-ring-color': primaryBlue }}
                         ></textarea>
                         
                         {/* WhatsApp Submit Button */}

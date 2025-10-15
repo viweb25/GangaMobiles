@@ -1,5 +1,3 @@
-// src/components/sections/AboutCultureSection.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,10 +7,10 @@ import img2 from '../../assets/download.jpg';
 import img3 from '../../assets/download3.jpg';
 
 // Define Brand Colors
-const primaryRed = '#800000'; // Deep Red/Maroon
-const accentRed = '#A52A2A';  // Bright Maroon for hover
-const quoteCardStart = '#800000'; // Deep Red
-const quoteCardEnd = '#B22222';   // Firebrick Red
+const primaryBlue = '#003087'; // Deep Blue
+const accentBlue = '#4682B4';  // Steel Blue for hover
+const quoteCardStart = '#003087'; // Deep Blue
+const quoteCardEnd = '#4169E1';   // Royal Blue
 
 // Define images object with local imports
 const images = {
@@ -70,7 +68,7 @@ const AboutCultureSection = () => {
                             />
                         </div>
                         
-                        {/* 3. Small QUOTE CARD (Deep Red/Maroon Gradient) */}
+                        {/* 3. Small QUOTE CARD (Deep Blue/Royal Blue Gradient) */}
                         <div
                             className="col-span-2 sm:col-span-1 text-white p-6 rounded-xl shadow-xl flex flex-col justify-center aspect-video transform transition duration-300 hover:scale-[1.02]"
                             data-aos="fade-up"
@@ -106,7 +104,7 @@ const AboutCultureSection = () => {
                     <div className="order-1 lg:order-2" data-aos="fade-left">
                         <p 
                             className="text-sm font-semibold uppercase tracking-wider mb-2"
-                            style={{ color: primaryRed }}
+                            style={{ color: primaryBlue }}
                         >
                             About Our Culture
                         </p>
@@ -119,9 +117,9 @@ const AboutCultureSection = () => {
                         <Link
                             to="/about"
                             className="inline-block font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 text-white"
-                            style={{ backgroundColor: primaryRed }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentRed}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = primaryRed}
+                            style={{ backgroundColor: primaryBlue }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentBlue}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = primaryBlue}
                         >
                             Learn More About Our Experts
                         </Link>

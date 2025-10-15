@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // --- Brand and SEO Data ---
-const primaryRed = '#800000'; // Deep Red/Maroon (Used for consistency in button hover/border)
+const primaryBlue = '#003087'; // Deep Blue (Used for consistency in button hover/border)
 
 const heroData = {
   // Primary SEO Keyword Focus
@@ -24,10 +24,10 @@ const HeroStaticSection = () => {
   return (
     <section
       // --- START OF REQUIRED CHANGES ---
-      // Implementing the exact gradient and spacing requested by the user
+      // Implementing the exact gradient and spacing with updated blue-related colors
       className="w-full relative h-auto min-h-[500px] py-20 sm:py-24 overflow-hidden -mt-20 z-20"
       style={{
-        background: 'linear-gradient(to right, #8B008B, #800000, #A52A2A)' // Deep Violet -> Deep Red -> Bright Maroon
+        background: 'linear-gradient(to right, #4B0082, #003087, #4682B4)' // Indigo -> Deep Blue -> Steel Blue
       }}
       // --- END OF REQUIRED CHANGES ---
       itemScope
@@ -70,7 +70,7 @@ const HeroStaticSection = () => {
               style={{ borderColor: 'white', color: 'white' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = 'white';
-                e.currentTarget.style.color = primaryRed; // Text turns red on hover
+                e.currentTarget.style.color = primaryBlue; // Text turns blue on hover
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = 'transparent';

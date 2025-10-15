@@ -1,11 +1,9 @@
-// src/components/sections/BrandShowcase.jsx
-
 import React from 'react';
 import { availableBrands } from "../../data/products"; 
 
 // --- Brand Colors ---
-const primaryRed = '#800000'; // Deep Red/Maroon
-const hoverAccentRed = '#A52A2A'; // Brighter Maroon for hover effects
+const primaryBlue = '#003087'; // Deep Blue
+const hoverAccentBlue = '#4682B4'; // Steel Blue for hover effects
 
 // =========================================================
 // 1. Import Local Images from src/assets
@@ -42,10 +40,10 @@ const BrandShowcase = () => {
     <section className="py-16 sm:py-20 bg-gray-50"> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Title Updated to Deep Red */}
+        {/* Title Updated to Deep Blue */}
         <h2 
           className="text-3xl sm:text-4xl font-extrabold mb-3"
-          style={{ color: primaryRed }}
+          style={{ color: primaryBlue }}
         > 
           Service By Brand 🛠️
         </h2>
@@ -65,10 +63,10 @@ const BrandShowcase = () => {
                   data-aos="fade-up"
                   data-aos-delay={index * 50} 
                   data-aos-duration="600"
-                  // Hover Effect: Use Deep Red/Maroon for border and text
+                  // Hover Effect: Use Deep Blue for border and text
                   className="block bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500 ease-in-out group border-2 border-transparent transform hover:scale-105 overflow-hidden cursor-pointer"
-                  style={{ '--hover-color': hoverAccentRed }} // Define custom CSS variable for hover
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = hoverAccentRed; }}
+                  style={{ '--hover-color': hoverAccentBlue }} // Define custom CSS variable for hover
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = hoverAccentBlue; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; }}
                 >
                   <div className="flex flex-col items-center justify-start h-full w-full">
@@ -83,11 +81,11 @@ const BrandShowcase = () => {
                         />
                     </div>
                     
-                    {/* Brand Name Text - Hover text color changed to Deep Red */}
+                    {/* Brand Name Text - Hover text color changed to Deep Blue */}
                     <h3 
                       className="text-sm sm:text-base font-bold text-gray-700 transition tracking-wide text-center py-3 px-2 w-full border-t border-gray-100"
                       style={{ transition: 'color 300ms' }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = primaryRed; }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = primaryBlue; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = '#4B5563'; }} // Default gray
                     >
                         {brand}
@@ -99,7 +97,7 @@ const BrandShowcase = () => {
           </div>
         ) : (
           <div className="py-10 text-center bg-white rounded-lg shadow-md border border-gray-200">
-            <p className="text-xl text-red-500 font-semibold">
+            <p className="text-xl text-blue-500 font-semibold">
               No major brands are currently available to display.
             </p>
           </div>

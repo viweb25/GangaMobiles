@@ -28,7 +28,7 @@ const QuickServicePreview = () => {
     return (
         <section 
             // -mt-20 pulls the section up over the hero image
-            className="w-full bg-gradient-to-r from-[#8B008B] via-[#800000] to-[#A52A2A] py-8 -mt-20 relative z-20" 
+            className="w-full bg-gradient-to-r from-[#4B0082] via-[#003087] to-[#4682B4] py-8 -mt-20 relative z-20" 
             aria-label="Quick preview of our top repair services"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
