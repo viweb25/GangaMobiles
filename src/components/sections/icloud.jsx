@@ -1,11 +1,9 @@
-// src/components/sections/iCloudUnlockSection.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 // --- Brand Colors ---
-const primaryRed = '#800000'; // Deep Red/Maroon
-const accentRed = '#A52A2A';  // Brighter Red for hover/accents
+const primaryBlue = '#003087'; // Deep Blue
+const accentBlue = '#4682B4';  // Steel Blue for hover/accents
 
 // =========================================================
 // NOTE: You MUST create an image named 'unlock.jpg' 
@@ -51,7 +49,7 @@ const iCloudUnlockSection = () => {
                         {/* Trust Badge */}
                         <div 
                             className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 p-4 rounded-full shadow-2xl z-10 hidden sm:block"
-                            style={{ backgroundColor: primaryRed }}
+                            style={{ backgroundColor: primaryBlue }}
                         >
                             <span className="text-white text-sm font-bold uppercase tracking-wider">
                                 100% Success Rate Guaranteed
@@ -61,7 +59,7 @@ const iCloudUnlockSection = () => {
 
                     {/* RIGHT: Content and Steps */}
                     <div className="order-1 lg:order-2" data-aos="fade-left">
-                        <p className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: primaryRed }}>
+                        <p className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: primaryBlue }}>
                             Unlock Services
                         </p>
                         <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
@@ -78,7 +76,7 @@ const iCloudUnlockSection = () => {
                                 <div key={item.step} className="flex items-start">
                                     <div 
                                         className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shadow-md"
-                                        style={{ backgroundColor: primaryRed }}
+                                        style={{ backgroundColor: primaryBlue }}
                                     >
                                         {item.step}
                                     </div>
@@ -93,10 +91,10 @@ const iCloudUnlockSection = () => {
                         {/* Call to Action Button */}
                         <Link
                             to="/unlock-service" // Link to a detailed unlock page or contact form
-                            style={{ backgroundColor: primaryRed }}
+                            style={{ backgroundColor: primaryBlue }}
                             className={`inline-block text-white font-semibold py-3 px-8 rounded-lg shadow-xl transition duration-300 transform hover:scale-105`}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentRed}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = primaryRed}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentBlue}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = primaryBlue}
                         >
                             Get Your Device Unlocked Now →
                         </Link>

@@ -1,5 +1,3 @@
-// src/components/sections/GadgetsShowcase.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 // Ensure this path is correct for your data file
@@ -11,11 +9,10 @@ const EarbudsImage = 'uploaded:WhatsApp Image 2025-10-13 at 10.05.18 PM.jpeg-cd3
 const ChargerImage = 'uploaded:WhatsApp Image 2025-10-13 at 10.14.25 PM.jpeg-a0a798de-86bb-4e7e-a66e-af728de4db13';
 const CaseImage = 'uploaded:WhatsApp Image 2025-10-13 at 10.20.14 PM.jpeg-0b84f312-dab4-46b8-b9b9-2411225a7be0';
 
-
 // --- Brand Colors ---
-const primaryRed = '#800000'; // Deep Red/Maroon
-const accentRed = '#A52A2A';  // Bright Maroon for hover
-const lightRedBg = '#FEF2F2'; // Very light red background for cards
+const primaryBlue = '#003087'; // Deep Blue
+const accentBlue = '#4682B4';  // Steel Blue for hover
+const lightBlueBg = '#F0F4F8'; // Very light blue background for cards
 
 const GadgetsShowcase = () => {
     
@@ -36,14 +33,14 @@ const GadgetsShowcase = () => {
     };
 
     return (
-        <section className="py-16 sm:py-24" style={{ backgroundColor: lightRedBg }}>
+        <section className="py-16 sm:py-24" style={{ backgroundColor: lightBlueBg }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 {/* Header */}
                 <div className="text-center mb-12 sm:mb-16">
                     <h2 
                         className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-2"
-                        style={{ color: primaryRed }}
+                        style={{ color: primaryBlue }}
                     >
                         Essential Mobile Accessories & Gadgets
                     </h2>
@@ -88,7 +85,7 @@ const GadgetsShowcase = () => {
 
                             {/* Price and CTA */}
                             <div className="mt-auto">
-                                <p className="text-sm font-semibold mb-2" style={{ color: primaryRed }}>
+                                <p className="text-sm font-semibold mb-2" style={{ color: primaryBlue }}>
                                     {gadget.price}
                                 </p>
                                 <a
@@ -96,9 +93,9 @@ const GadgetsShowcase = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block text-center text-xs font-semibold py-2 rounded-lg transition duration-200"
-                                    style={{ backgroundColor: primaryRed, color: 'white' }}
-                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentRed}
-                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = primaryRed}
+                                    style={{ backgroundColor: primaryBlue, color: 'white' }}
+                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentBlue}
+                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = primaryBlue}
                                 >
                                     💬 Price Check
                                 </a>
